@@ -25,8 +25,21 @@ class Player {
     c.fillStyle = "red";
     c.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
+
+  update() {
+    this.position.y += this.velocity.y;
+    this.draw();
+  }
 }
 
 const player = new Player();
 
-player.draw();
+player.update();
+
+function animate() {
+  requestAnimationFrame(animate);
+
+  console.log("go");
+}
+
+animate();
