@@ -49,9 +49,29 @@ function animate() {
   c.clearRect(0, 0, canvas.width, canvas.height);
   player.update();
 }
-
+// a = 65
+// s = 83
+// d = 68
+// w = 87
 animate();
 
 addEventListener("keydown", ({ keyCode }) => {
-  console.log(keyCode);
+  //   console.log(keyCode);
+
+  switch (keyCode) {
+    case 65:
+      console.log("left");
+      break;
+    case 83:
+      console.log("down");
+      break;
+    case 68:
+      console.log("right");
+      break;
+    case 87:
+      console.log("up");
+      //it needs to be negative because y with adding in y axes you are going down
+      player.velocity.y -= 10;
+      break;
+  }
 });
