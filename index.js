@@ -3,6 +3,7 @@ const c = canvas.getContext("2d");
 
 class Player {
   constructor() {
+    //initial parameters that will be altered but got to be initialized
     this.position = {
       x: 100,
       y: 100,
@@ -16,3 +17,7 @@ class Player {
     c.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
 }
+
+const player = new Player();
+
+player.draw();
