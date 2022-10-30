@@ -3,7 +3,7 @@ const c = canvas.getContext("2d");
 
 //said that when you reference window object like that you dont need the window.
 canvas.width = innerWidth;
-canvas.height = innerHeight;
+canvas.height = window.innerHeight - 30;
 
 const gravity = 0.5;
 
@@ -29,9 +29,8 @@ class Player {
   }
 
   update() {
-    this.draw();
     this.position.y += this.velocity.y;
-    this.position.x += this.velocity.x;
+    this.draw();
 
     if (this.position.y + this.height + this.velocity.y <= canvas.height) {
       this.velocity.y += gravity;
@@ -68,36 +67,11 @@ addEventListener("keydown", ({ keyCode }) => {
       break;
     case 68:
       console.log("right");
-      player.velocity.x = 1;
       break;
     case 87:
       console.log("up");
       //it needs to be negative because y with adding in y axes you are going down
       player.velocity.y -= 10;
-      break;
-  }
-});
-
-//keyup to stop the event listener when key is pressed down
-addEventListener("keyup", ({ keyCode }) => {
-  //   console.log(keyCode);
-
-  switch (keyCode) {
-    case 65:
-      console.log("left");
-      break;
-    case 83:
-      console.log("down");
-      break;
-    case 68:
-      console.log("right");
-      player.velocity.x = 0;
-
-      break;
-    case 87:
-      console.log("up");
-      //it needs to be negative because y with adding in y axes you are going down
-      //   player.velocity.y -= 10;
       break;
   }
 });
